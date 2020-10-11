@@ -5,8 +5,8 @@ public class Employee extends User {
     private String username;
     private String password;
 
-    public Employee(String firstName, String lastName, String email, int userId, ArrayList<Book> bookObjects, double balanceUnpaid, int ptoDays, String username, String password) {
-        super(firstName, lastName, email, userId, bookObjects, balanceUnpaid);
+    public Employee(String firstName, String lastName, String email, int userId, ArrayList<String> booksObject, double balanceUnpaid, int ptoDays, String username, String password) {
+        super(firstName, lastName, email, userId, booksObject, balanceUnpaid);
         this.ptoDays = ptoDays;
         this.username = username;
         this.password = password;
@@ -38,8 +38,7 @@ public class Employee extends User {
 
     @Override
     public void overduePayments(int numberOfDaysOverdue) {
-       double balanceUnpaid=numberOfDaysOverdue*0.10;
-
+        this.balanceUnpaid +=0.10;
+        System.out.println(this.getFirstName() + " unpaid balance is" +" " + balanceUnpaid);
     }
 }
-

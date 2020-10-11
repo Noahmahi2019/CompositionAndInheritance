@@ -5,10 +5,10 @@ public class User {
     private String lastName;
     private String email;
     private int userId;
-    private ArrayList<Book> booksObject;
+    private ArrayList<String> booksObject;
     double balanceUnpaid;
 
-    public User(String firstName, String lastName, String email, int userId, ArrayList<Book> booksObject, double balanceUnpaid) {
+    public User(String firstName, String lastName, String email, int userId, ArrayList<String> booksObject, double balanceUnpaid) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -49,14 +49,15 @@ public class User {
         this.userId = userId;
     }
 
-    public ArrayList<Book> getBooksObject() {
+    public ArrayList<String> getBooksObject() {
         return booksObject;
-}
- public void setBookObjects(ArrayList<Book> bookObjects) {
-      this.booksObject= bookObjects;
     }
 
-    public double getBalanceUnpaid() {
+    public void setBooksObject(ArrayList<String> booksObject) {
+        this.booksObject = booksObject;
+    }
+
+    public double getBalanceUnpaid(int i) {
         return balanceUnpaid;
     }
 
@@ -65,10 +66,8 @@ public class User {
     }
 
     public void overduePayments(int numberOfDaysOverdue) {
-
-        double balanceUnpaid = this.getBalanceUnpaid();
-       this.setBalanceUnpaid(numberOfDaysOverdue*0.50);
-
+      double chargesForDaysLate=numberOfDaysOverdue * 0.50;
+       this.balanceUnpaid +=chargesForDaysLate;
+        System.out.println(this.getFirstName() + " unpaid balance is" +" " + balanceUnpaid);
     }
-
 }
